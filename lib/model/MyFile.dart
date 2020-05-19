@@ -1,3 +1,0 @@
-class MyFile {
-  String name;
-}

@@ -38,8 +38,9 @@
 */
 
 import 'package:flutter/material.dart';
+import 'package:my_drive/ui/upload_widget.dart';
 
-import 'file:///C:/Apps/my_drive/lib/ui/download_button.dart';
+import 'file:///C:/Apps/my_drive/lib/ui/download_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -49,18 +50,43 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   static String ipAddress = "192.168.31.222";
   String hostUrl = "http://" + ipAddress + "/mydrive/";
-  String imageFileName = "arian-darvishi.jpg";
-  String pdfFileName = "sample.pdf";
+
+  String fileUploadedName = "";
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        DownloadButton(
-          hostUrl: hostUrl,
-          fileName: imageFileName,
+        Row(
+          children: <Widget>[
+            UploadWidget(
+              hostUrl: hostUrl,
+              fileUploadedCallback: fileUploaded,
+            ),
+            SizedBox(width: 20),
+            DownloadWidget(
+              hostUrl: hostUrl,
+              fileName: fileUploadedName,
+            ),
+          ],
         ),
+        SizedBox(height: 20),
+        showFileUploadedName(),
       ],
     );
+  }
+
+  Widget showFileUploadedName() {
+    if (fileUploadedName.isEmpty) {
+      return SizedBox();
+    } else {
+      return Text('File name: ' + fileUploadedName + " uploaded successfully");
+    }
+  }
+
+  void fileUploaded(String fileName) {
+    setState(() {
+      fileUploadedName = fileName;
+    });
   }
 }

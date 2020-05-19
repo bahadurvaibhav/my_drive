@@ -46,39 +46,57 @@ import 'package:my_drive/ui/pdf_viewer.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
-class DownloadButton extends StatefulWidget {
+class DownloadWidget extends StatefulWidget {
   final String hostUrl;
   final String fileName;
 
-  DownloadButton({
+  DownloadWidget({
     @required this.hostUrl,
     @required this.fileName,
   });
 
   @override
-  _DownloadButtonState createState() => _DownloadButtonState();
+  _DownloadWidgetState createState() => _DownloadWidgetState();
 }
 
-class _DownloadButtonState extends State<DownloadButton> {
+class _DownloadWidgetState extends State<DownloadWidget> {
   bool downloadInProgress = false;
   int received = 0;
   int total = 0;
+  CancelToken token;
 
   @override
   Widget build(BuildContext context) {
+    bool disableButton = downloadInProgress || widget.fileName.isEmpty;
     return Column(
       children: <Widget>[
+        showDownloadProgress(),
         RaisedButton(
-          onPressed: downloadInProgress ? null : downloadButtonPressed,
+          onPressed: disableButton ? null : downloadButtonPressed,
           child: Text(
             'Download File',
             style: TextStyle(color: Colors.white70),
           ),
           color: Colors.red,
         ),
-        showDownloadProgress(),
+        FlatButton(
+          onPressed: downloadInProgress ? cancelDownload : null,
+          child: Row(
+            children: <Widget>[
+              Icon(Icons.cancel),
+              Text('Cancel Download'),
+            ],
+          ),
+        ),
       ],
     );
+  }
+
+  void cancelDownload() {
+    token.cancel("Cancelled Upload");
+    setState(() {
+      downloadInProgress = false;
+    });
   }
 
   Widget showDownloadProgress() {
@@ -109,10 +127,12 @@ class _DownloadButtonState extends State<DownloadButton> {
   Future<String> downloadFile() async {
     Directory tempDir = await getTemporaryDirectory();
     String saveFileToPath = tempDir.path + "/" + widget.fileName + "'";
+    token = CancelToken();
     await Dio().download(
       widget.hostUrl + widget.fileName,
       saveFileToPath,
       onReceiveProgress: onReceiveProgress,
+      cancelToken: token,
     );
     return saveFileToPath;
   }
