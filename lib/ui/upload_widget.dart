@@ -45,14 +45,17 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 typedef FileUploadedCallback = void Function(String fileName);
+typedef FileUploadErrorCallback = void Function(String error);
 
 class UploadWidget extends StatefulWidget {
   final String hostUrl;
   final FileUploadedCallback fileUploadedCallback;
+  final FileUploadErrorCallback fileUploadErrorCallback;
 
   UploadWidget({
     @required this.hostUrl,
     @required this.fileUploadedCallback,
+    @required this.fileUploadErrorCallback,
   });
 
   @override
@@ -64,6 +67,8 @@ class _UploadWidgetState extends State<UploadWidget> {
   int sent = 0;
   int total = 0;
   CancelToken token;
+  List<String> acceptedExtensions = ["pdf", "jpg", "png", "jpeg"];
+  static const int MAXIMUM_FILE_SIZE = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -113,6 +118,8 @@ class _UploadWidgetState extends State<UploadWidget> {
   }
 
   void uploadButtonPressed() async {
+    widget.fileUploadErrorCallback("");
+    widget.fileUploadedCallback("");
     setState(() {
       uploadInProgress = true;
     });
@@ -124,7 +131,12 @@ class _UploadWidgetState extends State<UploadWidget> {
   }
 
   Future<void> uploadFile(File file) async {
+    bool fileValid = await isFileValid(file);
+    if (!fileValid) {
+      return;
+    }
     String fileName = file.path.split('/').last;
+
     FormData formData = new FormData.fromMap({
       "file": await MultipartFile.fromFile(
         file.path,
@@ -139,6 +151,22 @@ class _UploadWidgetState extends State<UploadWidget> {
       cancelToken: token,
     );
     widget.fileUploadedCallback(fileName);
+  }
+
+  Future<bool> isFileValid(File file) async {
+    String fileExtension = file.path.split('.').last;
+    if (!acceptedExtensions.contains(fileExtension)) {
+      widget.fileUploadErrorCallback(
+          "Extension not supported. Only pdf, jpg, jpeg, png allowed");
+      return false;
+    }
+    int fileSizeInBytes = await file.length();
+    if (fileSizeInBytes > MAXIMUM_FILE_SIZE * 1000000) {
+      widget.fileUploadErrorCallback(
+          "Maximum File Size " + MAXIMUM_FILE_SIZE.toString() + "MB exceeded");
+      return false;
+    }
+    return true;
   }
 
   void onSendProgress(int count, int total) {

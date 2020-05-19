@@ -38,9 +38,8 @@
 */
 
 import 'package:flutter/material.dart';
+import 'package:my_drive/ui/download_widget.dart';
 import 'package:my_drive/ui/upload_widget.dart';
-
-import 'file:///C:/Apps/my_drive/lib/ui/download_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -52,6 +51,7 @@ class _HomePageState extends State<HomePage> {
   String hostUrl = "http://" + ipAddress + "/mydrive/";
 
   String fileUploadedName = "";
+  String fileUploadErrorText = "";
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +62,7 @@ class _HomePageState extends State<HomePage> {
             UploadWidget(
               hostUrl: hostUrl,
               fileUploadedCallback: fileUploaded,
+              fileUploadErrorCallback: fileUploadError,
             ),
             SizedBox(width: 20),
             DownloadWidget(
@@ -72,8 +73,29 @@ class _HomePageState extends State<HomePage> {
         ),
         SizedBox(height: 20),
         showFileUploadedName(),
+        SizedBox(height: 20),
+        showFileUploadError(),
       ],
     );
+  }
+
+  void fileUploadError(String error) {
+    setState(() {
+      fileUploadErrorText = error;
+    });
+  }
+
+  Widget showFileUploadError() {
+    if (fileUploadErrorText.isEmpty) {
+      return SizedBox();
+    } else {
+      return Text(
+        'Error: ' + fileUploadErrorText,
+        style: TextStyle(
+          color: Colors.red,
+        ),
+      );
+    }
   }
 
   Widget showFileUploadedName() {
