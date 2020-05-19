@@ -48,8 +48,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   static String ipAddress = "192.168.31.222";
-  String downloadUrl = "http://" + ipAddress + "/mydrive/";
-  String imageFileName = "Jeeves.jpg";
+  String hostUrl = "http://" + ipAddress + "/mydrive/";
+  String imageFileName = "arian-darvishi.jpg";
   String pdfFileName = "sample.pdf";
 
   @override
@@ -57,8 +57,8 @@ class _HomePageState extends State<HomePage> {
     return Column(
       children: <Widget>[
         DownloadButton(
-          hostUrl: downloadUrl,
-          fileName: pdfFileName,
+          hostUrl: hostUrl,
+          fileName: imageFileName,
         ),
       ],
     );

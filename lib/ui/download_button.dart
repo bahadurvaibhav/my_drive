@@ -44,6 +44,7 @@ import 'package:flutter/material.dart';
 import 'package:my_drive/ui/image_viewer.dart';
 import 'package:my_drive/ui/pdf_viewer.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class DownloadButton extends StatefulWidget {
   final String hostUrl;
@@ -60,16 +61,37 @@ class DownloadButton extends StatefulWidget {
 
 class _DownloadButtonState extends State<DownloadButton> {
   bool downloadInProgress = false;
+  int received = 0;
+  int total = 0;
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
-      onPressed: downloadInProgress ? null : downloadButtonPressed,
-      child: Text(
-        'Download File',
-        style: TextStyle(color: Colors.white70),
-      ),
-      color: Colors.red,
+    return Column(
+      children: <Widget>[
+        RaisedButton(
+          onPressed: downloadInProgress ? null : downloadButtonPressed,
+          child: Text(
+            'Download File',
+            style: TextStyle(color: Colors.white70),
+          ),
+          color: Colors.red,
+        ),
+        showDownloadProgress(),
+      ],
+    );
+  }
+
+  Widget showDownloadProgress() {
+    double percentageCompleted = 0;
+    if (total != 0) {
+      percentageCompleted = received / total * 100;
+    }
+    return CircularPercentIndicator(
+      radius: 60.0,
+      lineWidth: 5.0,
+      percent: percentageCompleted / 100,
+      center: new Text(percentageCompleted.round().toString() + "%"),
+      progressColor: Colors.green,
     );
   }
 
@@ -90,12 +112,17 @@ class _DownloadButtonState extends State<DownloadButton> {
     await Dio().download(
       widget.hostUrl + widget.fileName,
       saveFileToPath,
-      onReceiveProgress: updateProgress,
+      onReceiveProgress: onReceiveProgress,
     );
     return saveFileToPath;
   }
 
-  void updateProgress(int received, int total) {}
+  void onReceiveProgress(int count, int total) {
+    setState(() {
+      received = count;
+      this.total = total;
+    });
+  }
 
   void viewFile(String savedFilePath) {
     String fileExtension =

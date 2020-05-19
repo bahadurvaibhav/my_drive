@@ -38,6 +38,7 @@
 */
 
 import 'package:flutter/material.dart';
+
 import 'file:///C:/Apps/my_drive/lib/ui/home_page.dart';
 
 void main() => runApp(MyApp());
@@ -51,10 +52,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       home: Scaffold(
-          appBar: AppBar(
-            title: Text('My Drive'),
-          ),
-          body: HomePage()),
+        appBar: AppBar(
+          title: Text('My Drive'),
+        ),
+        body: HomePage(),
+      ),
     );
   }
 }
