@@ -1,6 +1,6 @@
 /*
   Copyright (c) 2020 Razeware LLC
-  
+
   Permission is hereby granted, free of charge, to any person
   obtaining a copy of this software and associated documentation
   files (the "Software"), to deal in the Software without
@@ -9,10 +9,10 @@
   sell copies of the Software, and to permit persons to whom
   the Software is furnished to do so, subject to the following
   conditions:
-  
+
   The above copyright notice and this permission notice shall be
   included in all copies or substantial portions of the Software.
-  
+
   Notwithstanding the foregoing, you may not use, copy, modify,
       merge, publish, distribute, sublicense, create a derivative work,
   and/or sell copies of the Software in any work that is designed,
@@ -21,12 +21,12 @@
   information technology. Permission for such use, copying,
       modification, merger, publication, distribution, sublicensing,
       creation of derivative works, or sale is expressly withheld.
-  
+
   This project and source code may use libraries or frameworks
   that are released under various Open-Source licenses. Use of
   those libraries and frameworks are governed by their own
   individual licenses.
-  
+
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -37,24 +37,83 @@
   DEALINGS IN THE SOFTWARE.
 */
 
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'file:///C:/Apps/my_drive/lib/ui/home_page.dart';
+import 'package:my_drive/ui/image_viewer.dart';
+import 'package:my_drive/ui/pdf_viewer.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() => runApp(MyApp());
+class DownloadButton extends StatefulWidget {
+  final String hostUrl;
+  final String fileName;
 
-class MyApp extends StatelessWidget {
+  DownloadButton({
+    @required this.hostUrl,
+    @required this.fileName,
+  });
+
+  @override
+  _DownloadButtonState createState() => _DownloadButtonState();
+}
+
+class _DownloadButtonState extends State<DownloadButton> {
+  bool downloadInProgress = false;
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'My Drive',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
+    return RaisedButton(
+      onPressed: downloadInProgress ? null : downloadButtonPressed,
+      child: Text(
+        'Download File',
+        style: TextStyle(color: Colors.white70),
       ),
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text('My Drive'),
-          ),
-          body: HomePage()),
+      color: Colors.red,
     );
+  }
+
+  void downloadButtonPressed() async {
+    setState(() {
+      downloadInProgress = true;
+    });
+    String savedFilePath = await downloadFile();
+    viewFile(savedFilePath);
+    setState(() {
+      downloadInProgress = false;
+    });
+  }
+
+  Future<String> downloadFile() async {
+    Directory tempDir = await getTemporaryDirectory();
+    String saveFileToPath = tempDir.path + "/" + widget.fileName + "'";
+    await Dio().download(
+      widget.hostUrl + widget.fileName,
+      saveFileToPath,
+      onReceiveProgress: updateProgress,
+    );
+    return saveFileToPath;
+  }
+
+  void updateProgress(int received, int total) {}
+
+  void viewFile(String savedFilePath) {
+    String fileExtension =
+        widget.fileName.substring(widget.fileName.lastIndexOf(".") + 1);
+    if (fileExtension.toLowerCase() == "pdf") {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MyPdfViewer(savedFilePath, widget.fileName),
+        ),
+      );
+    } else {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ImageViewer(savedFilePath, widget.fileName),
+        ),
+      );
+    }
   }
 }

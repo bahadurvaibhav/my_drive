@@ -38,23 +38,29 @@
 */
 
 import 'package:flutter/material.dart';
-import 'file:///C:/Apps/my_drive/lib/ui/home_page.dart';
 
-void main() => runApp(MyApp());
+import 'file:///C:/Apps/my_drive/lib/ui/download_button.dart';
 
-class MyApp extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  static String ipAddress = "192.168.31.222";
+  String downloadUrl = "http://" + ipAddress + "/mydrive/";
+  String imageFileName = "Jeeves.jpg";
+  String pdfFileName = "sample.pdf";
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'My Drive',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text('My Drive'),
-          ),
-          body: HomePage()),
+    return Column(
+      children: <Widget>[
+        DownloadButton(
+          hostUrl: downloadUrl,
+          fileName: pdfFileName,
+        ),
+      ],
     );
   }
 }
