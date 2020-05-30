@@ -124,8 +124,13 @@ class _UploadWidgetState extends State<UploadWidget> {
       percentageCompleted = 0;
       uploadInProgress = true;
     });
-    File file = await FilePicker.getFile();
-    await uploadFile(file);
+    try {
+      File file = await FilePicker.getFile();
+      await uploadFile(file);
+    } catch (e) {
+      print('File Picker error');
+    }
+
     setState(() {
       uploadInProgress = false;
     });
