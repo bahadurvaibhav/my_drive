@@ -45,12 +45,12 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 typedef FileUploadedCallback = void Function(String fileName);
-typedef FileUploadErrorCallback = void Function(String error);
+typedef FileErrorCallback = void Function(String error);
 
 class UploadWidget extends StatefulWidget {
   final String hostUrl;
   final FileUploadedCallback fileUploadedCallback;
-  final FileUploadErrorCallback fileUploadErrorCallback;
+  final FileErrorCallback fileUploadErrorCallback;
 
   UploadWidget({
     @required this.hostUrl,
@@ -68,7 +68,8 @@ class _UploadWidgetState extends State<UploadWidget> {
   int total = 0;
   CancelToken token;
   List<String> acceptedExtensions = ["pdf", "jpg", "png", "jpeg"];
-  static const int MAXIMUM_FILE_SIZE = 2;
+  static const int MAXIMUM_FILE_SIZE = 10;
+  double percentageCompleted = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -97,14 +98,13 @@ class _UploadWidgetState extends State<UploadWidget> {
   }
 
   void cancelUpload() {
-    token.cancel("Cancelled Upload");
+    token.cancel("Upload cancel");
     setState(() {
       uploadInProgress = false;
     });
   }
 
   Widget showUploadProgress() {
-    double percentageCompleted = 0;
     if (total != 0) {
       percentageCompleted = sent / total * 100;
     }
@@ -121,6 +121,7 @@ class _UploadWidgetState extends State<UploadWidget> {
     widget.fileUploadErrorCallback("");
     widget.fileUploadedCallback("");
     setState(() {
+      percentageCompleted = 0;
       uploadInProgress = true;
     });
     File file = await FilePicker.getFile();
@@ -144,12 +145,18 @@ class _UploadWidgetState extends State<UploadWidget> {
       ),
     });
     token = CancelToken();
-    await Dio().post(
-      widget.hostUrl + 'uploadDocument.php',
-      data: formData,
-      onSendProgress: onSendProgress,
-      cancelToken: token,
-    );
+    var urlPath = widget.hostUrl + 'uploadDocument';
+    try {
+      await Dio().post(
+        urlPath,
+        data: formData,
+        onSendProgress: onSendProgress,
+        cancelToken: token,
+      );
+    } on DioError catch (e) {
+      widget.fileUploadErrorCallback("File upload cancelled");
+      return;
+    }
     widget.fileUploadedCallback(fileName);
   }
 

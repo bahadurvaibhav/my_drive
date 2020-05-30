@@ -47,8 +47,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static String ipAddress = "192.168.31.222";
-  String hostUrl = "http://" + ipAddress + "/mydrive/";
+  static String ipAddress = "10.0.2.2:8888";
+  String hostUrl = "http://" + ipAddress + "/";
 
   String fileUploadedName = "";
   String fileUploadErrorText = "";
@@ -62,12 +62,13 @@ class _HomePageState extends State<HomePage> {
             UploadWidget(
               hostUrl: hostUrl,
               fileUploadedCallback: fileUploaded,
-              fileUploadErrorCallback: fileUploadError,
+              fileUploadErrorCallback: fileError,
             ),
             SizedBox(width: 20),
             DownloadWidget(
               hostUrl: hostUrl,
               fileName: fileUploadedName,
+              fileDownloadErrorCallback: fileError,
             ),
           ],
         ),
@@ -79,7 +80,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void fileUploadError(String error) {
+  void fileError(String error) {
     setState(() {
       fileUploadErrorText = error;
     });

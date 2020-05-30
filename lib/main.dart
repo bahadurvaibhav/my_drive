@@ -38,8 +38,7 @@
 */
 
 import 'package:flutter/material.dart';
-
-import 'file:///C:/Apps/my_drive/lib/ui/home_page.dart';
+import 'package:my_drive/ui/home_page.dart';
 
 void main() => runApp(MyApp());
 
