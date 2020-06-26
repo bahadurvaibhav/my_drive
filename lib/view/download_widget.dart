@@ -37,11 +37,13 @@
   DEALINGS IN THE SOFTWARE.
 */
 
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_plugin_pdf_viewer/flutter_plugin_pdf_viewer.dart';
 import 'package:my_drive/gateway/client.dart';
 import 'package:my_drive/view/image_viewer.dart';
-import 'package:my_drive/view/pdf_viewer.dart';
 import 'package:my_drive/view/upload_widget.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
@@ -145,10 +147,12 @@ class _DownloadWidgetState extends State<DownloadWidget> {
       setState(() {
         percentageCompleted = 100;
       });
+      File file = new File(savedFilePath);
+      PDFDocument doc = await PDFDocument.fromFile(file);
       await Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => MyPdfViewer(savedFilePath, widget.fileName),
+          builder: (context) => PDFViewer(document: doc),
         ),
       );
     } else {
