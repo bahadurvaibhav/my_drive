@@ -38,8 +38,8 @@
 */
 
 import 'package:flutter/material.dart';
-import 'package:my_drive/ui/download_widget.dart';
-import 'package:my_drive/ui/upload_widget.dart';
+import 'package:my_drive/view/download_widget.dart';
+import 'package:my_drive/view/upload_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -47,9 +47,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // In Android use 10.0.2.2; In iOS use localhost
-  static String ipAddress = "localhost";
-  String hostUrl = "http://" + ":8888" + "/";
+
 
   String fileUploadedName = "";
   String fileUploadErrorText = "";
@@ -61,13 +59,11 @@ class _HomePageState extends State<HomePage> {
         Row(
           children: <Widget>[
             UploadWidget(
-              hostUrl: hostUrl,
               fileUploadedCallback: fileUploaded,
               fileUploadErrorCallback: fileError,
             ),
             SizedBox(width: 20),
             DownloadWidget(
-              hostUrl: hostUrl,
               fileName: fileUploadedName,
               fileDownloadErrorCallback: fileError,
             ),

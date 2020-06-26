@@ -40,55 +40,53 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:my_drive/ui/image_viewer.dart';
-import 'package:my_drive/ui/pdf_viewer.dart';
-import 'package:my_drive/ui/upload_widget.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:my_drive/gateway/client.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
-class DownloadWidget extends StatefulWidget {
-  final String hostUrl;
-  final String fileName;
-  final FileErrorCallback fileDownloadErrorCallback;
+typedef FileUploadedCallback = void Function(String fileName);
+typedef FileErrorCallback = void Function(String error);
 
-  DownloadWidget({
-    @required this.hostUrl,
-    @required this.fileName,
-    @required this.fileDownloadErrorCallback,
+class UploadWidget extends StatefulWidget {
+  final FileUploadedCallback fileUploadedCallback;
+  final FileErrorCallback fileUploadErrorCallback;
+
+  UploadWidget({
+    @required this.fileUploadedCallback,
+    @required this.fileUploadErrorCallback,
   });
 
   @override
-  _DownloadWidgetState createState() => _DownloadWidgetState();
+  _UploadWidgetState createState() => _UploadWidgetState();
 }
 
-class _DownloadWidgetState extends State<DownloadWidget> {
-  bool downloadInProgress = false;
-  int received = 0;
+class _UploadWidgetState extends State<UploadWidget> {
+  bool uploadInProgress = false;
+  int sent = 0;
   int total = 0;
   CancelToken token;
   double percentageCompleted = 0;
 
   @override
   Widget build(BuildContext context) {
-    bool disableButton = downloadInProgress || widget.fileName.isEmpty;
     return Column(
       children: <Widget>[
-        showDownloadProgress(),
+        showUploadProgress(),
         RaisedButton(
-          onPressed: disableButton ? null : downloadButtonPressed,
+          onPressed: uploadInProgress ? null : uploadButtonPressed,
           child: Text(
-            'Download File',
+            'Upload File',
             style: TextStyle(color: Colors.white70),
           ),
           color: Colors.red,
         ),
         FlatButton(
-          onPressed: downloadInProgress ? cancelDownload : null,
+          onPressed: uploadInProgress ? cancelUpload : null,
           child: Row(
             children: <Widget>[
               Icon(Icons.cancel),
-              Text('Cancel Download'),
+              Text('Cancel Upload'),
             ],
           ),
         ),
@@ -96,16 +94,16 @@ class _DownloadWidgetState extends State<DownloadWidget> {
     );
   }
 
-  void cancelDownload() {
-    token.cancel("Download cancel");
+  void cancelUpload() {
+    token.cancel("Upload cancel");
     setState(() {
-      downloadInProgress = false;
+      uploadInProgress = false;
     });
   }
 
-  Widget showDownloadProgress() {
-    if (total != 0 && total != -1) {
-      percentageCompleted = received / total * 100;
+  Widget showUploadProgress() {
+    if (total != 0) {
+      percentageCompleted = sent / total * 100;
     }
     return CircularPercentIndicator(
       radius: 60.0,
@@ -116,72 +114,31 @@ class _DownloadWidgetState extends State<DownloadWidget> {
     );
   }
 
-  void downloadButtonPressed() async {
-    widget.fileDownloadErrorCallback("");
+  void uploadButtonPressed() async {
+    widget.fileUploadErrorCallback("");
+    widget.fileUploadedCallback("");
     setState(() {
       percentageCompleted = 0;
-      downloadInProgress = true;
+      uploadInProgress = true;
     });
-    String savedFilePath = await downloadFile();
-    if (savedFilePath.isNotEmpty) {
-      viewFile(savedFilePath);
-    } else {
-      widget.fileDownloadErrorCallback("File download cancelled");
-    }
-    setState(() {
-      downloadInProgress = false;
-    });
-  }
-
-  Future<String> downloadFile() async {
-    Directory tempDir = await getTemporaryDirectory();
-    String saveFileToPath = tempDir.path + "/" + widget.fileName + "'";
-    token = CancelToken();
-    String urlPath = widget.hostUrl + "files/" + widget.fileName;
     try {
-      print(urlPath);
-      await Dio().download(
-        urlPath,
-        saveFileToPath,
-        onReceiveProgress: onReceiveProgress,
-        cancelToken: token,
-      );
-    } on DioError catch (e) {
-      return "";
+      File file = await FilePicker.getFile();
+      token = CancelToken();
+      await uploadFile(file, token, onSendProgress,
+          widget.fileUploadedCallback, widget.fileUploadErrorCallback);
+    } catch (e) {
+      print('File Picker error');
     }
-    return saveFileToPath;
+
+    setState(() {
+      uploadInProgress = false;
+    });
   }
 
-  void onReceiveProgress(int count, int total) {
+  void onSendProgress(int count, int total) {
     setState(() {
-      received = count;
+      sent = count;
       this.total = total;
     });
-  }
-
-  Future<void> viewFile(String savedFilePath) async {
-    String fileExtension =
-        widget.fileName.substring(widget.fileName.lastIndexOf(".") + 1);
-    if (fileExtension.toLowerCase() == "pdf") {
-      setState(() {
-        percentageCompleted = 100;
-      });
-      await Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => MyPdfViewer(savedFilePath, widget.fileName),
-        ),
-      );
-    } else {
-      setState(() {
-        percentageCompleted = 100;
-      });
-      await Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ImageViewer(savedFilePath, widget.fileName),
-        ),
-      );
-    }
   }
 }
