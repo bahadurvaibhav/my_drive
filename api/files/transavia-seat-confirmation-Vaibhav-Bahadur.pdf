@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" prefix="og: http://ogp.me/ns#">
+<head>
+        <meta name="robots" content="index, follow">
+
+        <meta name="google-site-verification" content="YBoenMbpQIzDj2LbYnNTV4afHOgQgkrU8Rt0cmkHNBI">
+
+        <script src="//cdn.optimizely.com/js/3149740186.js"></script>
+
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info = {"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"71e5b141d1","applicationID":"13836153","transactionName":"YFZTYUBSWUJVVxEIV1kcfGNxHHNIWlUICFt0XF9BQFxbXVFGSiZdQw==","queueTime":0,"applicationTime":151,"ttGuid":"CD718D550E8098CD","agent":"","sslForHttp":"true"}</script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VwcFUFBACQAIV1dTAgI="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),s.on(m,function(){this.bstStart=Date.now()}),s.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,!1),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(17)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=c(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(s(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;c<s;c++)a[c].apply(i,r);var u=f[w[n]];return u&&u.push([v,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",w[n]=e,e in f||(f[e]=[])})}var m={},w={},v={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return v}function i(){return new r}var a="nr@context",s=t("gos"),c=t(15),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!g++){var t=y.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(w,function(e,n){t[e]||(t[e]=n)});var n="https"===m.split(":")[0]||t.sslForHttp;y.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=y.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(15),f=window,u=f.document,d="addEventListener",l="attachEvent",p=f.XMLHttpRequest,h=p&&p.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:p,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var m=""+location,w={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-974.min.js"},v=p&&h&&h[d]&&!/CriOS/.test(navigator.userAgent),y=e.exports={offset:a(),origin:m,features:{},xhrWrappable:v};u[d]?(u[d]("DOMContentLoaded",i,!1),f[d]("load",r,!1)):(u[l]("onreadystatechange",o),f[l]("onload",r)),s("mark",["firstbyte",a()],null,"api");var g=0},{}]},{},["loader",2,10,4,3]);</script>
+    <title>Online check-in at Transavia</title>
+
+    
+
+        <meta name="description" content="For many of our flights, you can check in quickly and easily online. Online check-in with Transavia is possible from 30 hours to 4 hours before departure." />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta property="og:title" content="Online check-in at Transavia">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.transavia.com/">
+    <meta property="og:image" content="/Static/Images/logos/transavia.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="https://d287b8ujr3wtgx.cloudfront.net//static/images/favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://d287b8ujr3wtgx.cloudfront.net//static/images/favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://d287b8ujr3wtgx.cloudfront.net//static/images/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://d287b8ujr3wtgx.cloudfront.net//static/images/favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://d287b8ujr3wtgx.cloudfront.net//static/images/favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://d287b8ujr3wtgx.cloudfront.net//static/images/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://d287b8ujr3wtgx.cloudfront.net//static/images/favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://d287b8ujr3wtgx.cloudfront.net//static/images/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://d287b8ujr3wtgx.cloudfront.net//static/images/favicon/apple-touch-icon-180x180.png">
+    <meta name="apple-mobile-web-app-title" content="Transavia">
+    <link rel="icon" type="image/png" href="https://d287b8ujr3wtgx.cloudfront.net//static/images/favicon/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="https://d287b8ujr3wtgx.cloudfront.net//static/images/favicon/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="https://d287b8ujr3wtgx.cloudfront.net//static/images/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="https://d287b8ujr3wtgx.cloudfront.net//static/images/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://d287b8ujr3wtgx.cloudfront.net//static/images/favicon/favicon-32x32.png" sizes="32x32">
+
+    
+
+    
+
+    <meta name="msapplication-config" content="/static/xml/browserconfig.xml" />
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/static/images/favicon/mstile-144x144.png">
+    <meta name="application-name" content="Transavia">
+
+    <link href='https://d287b8ujr3wtgx.cloudfront.net/static/css/transavia?v=U9LPQeB70JIQP3SrB9vlGf9CE3qmvrQV0kv40VZKNFY1' rel='stylesheet'></script>
+
+
+    
+
+    <script src='https://d287b8ujr3wtgx.cloudfront.net/static/js/libs/modernizr.min.js'></script>
+
+    <script>
+    (function(){
+        function isLocalStorageSupported() {
+            var a = 'TransaviaLocalStorageTest';
+            try {
+                localStorage.setItem(a, a);
+                localStorage.removeItem(a);
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        if (isLocalStorageSupported() && localStorage.getItem('NexaFontLoaded')) {
+            document.documentElement.className += ' fonts-loaded';
+        }
+    })();
+    </script>
+
+
+    
+<meta name="VIcurrentDateTime" content="636114480112635450" />
+<script type="text/javascript" src="/layouts/system/VisitorIdentification.js"></script>
+
+</head>
+
+<body data-module='[{ "path": "ui/TagMan" },{ "path": "ui/TagManCookieHelper", "options": {"tagManData": {"eventName":"ImplicitConsentInteraction", "eventData":{}}} }]'>
+    
+
+
+
+    
+
+<script>
+    (function () {
+        window._waq = [];
+        window._waq.getCookie = function (a, b) {
+            return (b = document.cookie.match("(^|;)\\s*" + a + "\\s*=\\s*([^;]+)")) ? b.pop() : null;
+        };
+
+        window.qgov = {
+            level: -1,
+            cookies_allowed: true
+        };
+
+        try {
+            var cVal = _waq.getCookie("dimml_consent");
+            if (typeof (cVal) === "string") {
+                qgov.level = JSON.parse(unescape(cVal)).level;
+                qgov.cookies_allowed = (qgov.level === 1);
+            }
+        }
+        catch (e) { }
+
+        window.tmParam = {
+  "page_type": "my-transavia",
+  "page_name": "checkin/login",
+  "page_url": "/en-EU/my-transavia/check-in/login/",
+  "language": "EN",
+  "country_code": "EU",
+  "environment": "PROD",
+  "server_id": "EUWCD04",
+  "userId": ""
+};
+
+        (function (d, s) {
+            var pre = '//sec.levexis.com';
+            try {
+                var env = _waq.getCookie('s_TagmanEnv');
+                if ('string' == typeof env
+                    && 'staging' == env) {
+                    pre = '//tagtesting.tagman.com';
+                }
+            } catch (e) { }
+            var a = d.createElement(s),
+                b = d.getElementsByTagName(s)[0];
+            a.async = !0;
+            a.src = pre + '/clients/transavia/14.js';
+            a.tagman = 'st=' + (+new Date()) + '&c=transavia&sid=14';
+            b.parentNode.insertBefore(a, b);
+        })(document, 'script');
+    })();
+</script>
+    
+
+
+<header class="header header--vertical" data-module='[{"path":"ui/ResponsiveNavigation"}]'>
+    <a href="/" class="header_logo">
+        <img src="/static/images/logos/transavia-logo-50years.svg" alt="Logo Transavia">
+    </a>
+    
+
+<nav class="navigation navigation--vertical" data-navigation data-module='[{"path": "ui/HamburgerNavigation"}]'>
+    <div class="header_bar">
+        <p class="navigation_button-open-wrapper" data-hamburger-button-wrapper>
+            <a href="#navigation" class="navigation_button-open" data-hamburger-button>
+                <span class="icon-font icon-hamburger navigation_button-open_icon"></span>
+            </a>
+        </p>
+        <script type="text/template" data-horizontal-primary-navigation-template>
+            
+<div class="primary-navigation primary-navigation--horizontal navigation_horizontal-primary-navigation is-hidden" data-prevent-wrapping-item>
+    <ul class="bulletless primary-navigation_list">
+            <li class="primary-navigation_item">
+                        <a class="h4 h4--green primary-navigation_link" href="/en-EU/home/">
+                            <span class="icon-font icon-house"></span>
+                        </a>
+            </li>
+            <li class="primary-navigation_item">
+                    <a class="h5 primary-navigation_link" href="/en-EU/book-a-flight/flights/search/" data-module='[{"path": "ui/TogglePanel","options": {}}]' data-togglepanel-container='[data-togglepanel="horizontal-sub-navigation-planandbook"]' data-content-container="#horizontal-sub-navigation-book .togglepanel" data-togglepanel=".togglepanel-content">
+                        <span class="icon-font icon-down-small"></span>
+                        Plan and book
+                    </a>
+
+
+<div id="horizontal-sub-navigation-planandbook">
+    <div class="togglepanel-container primary-navigation_togglepanel" data-togglepanel="horizontal-sub-navigation-planandbook">
+        <div class="togglepanel-arrow"></div>
+        <div class="togglepanel-content primary-navigation_togglepanel-content">
+            <div class="sub-navigation sub-navigation--horizontal">
+                    <div class="sub-navigation-level-1 sub-navigation-level-1--horizontal">
+                        <div class="panel_section">
+                            <ul class="bulletless sub-navigation-level-1_list HV-gc">
+                                    <li class="sub-navigation-level-1_item HV-gu--bp0--y1-1 HV-gu--bp0--x1-2 HV-gu--bp0--50p HV-gu--bp25--y1-1 HV-gu--bp25--x1-3 HV-gu--bp25--33p">
+                                        <a href="/en-EU/book-a-flight/flights/search/" class="sub-navigation_link sub-navigation-level-1_link h5">
+                                            <div class="stamp-in-margin--bp0">
+                                                <span class="stamp icon-font icon-airplane"></span>
+                                                <span class="sub-navigation-level-1_link-text">Book a flight&nbsp;<span class="icon-font icon-arrow-right"></span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="sub-navigation-level-1_item HV-gu--bp0--y1-2 HV-gu--bp0--x2-2 HV-gu--bp0--50p HV-gu--bp25--y1-1 HV-gu--bp25--x2-3 HV-gu--bp25--33p">
+                                        <a href="http://www.booking.com/index.en-us.html?aid=320721;label=trnsv-home-navtab;sid=fca5360215bdfcab963f170d78bc3320;dcid=1" class="sub-navigation_link sub-navigation-level-1_link h5">
+                                            <div class="stamp-in-margin--bp0">
+                                                <span class="stamp icon-font icon-bus"></span>
+                                                <span class="sub-navigation-level-1_link-text">Book a hotel&nbsp;<span class="icon-font icon-arrow-right"></span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="sub-navigation-level-1_item HV-gu--bp0--y2-2 HV-gu--bp0--x1-2 HV-gu--bp0--50p HV-gu--bp25--y1-1 HV-gu--bp25--x3-3 HV-gu--bp25--33p">
+                                        <a href="https://cars.cartrawler.com/transavia/en" class="sub-navigation_link sub-navigation-level-1_link h5">
+                                            <div class="stamp-in-margin--bp0">
+                                                <span class="stamp icon-font icon-auto"></span>
+                                                <span class="sub-navigation-level-1_link-text">Rent a car&nbsp;<span class="icon-font icon-arrow-right"></span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                            </ul>
+                        </div>
+                    </div>
+                <div class="sub-navigation-level-2 sub-navigation-level-2--horizontal panel_section panel_section--bottom">
+                    <div class="HV-gs-type-e--bp0">
+                        <h2 class="h6">Plan and book your trip at Transavia:</h2>
+                    </div>
+                    <div class="HV-gs--bp0">
+                        <ul class="bulletless sub-navigation-level-2_list HV-gc">
+
+
+
+                                <li class="
+                                        HV-gu-small--bp0--y1-3
+                                        HV-gu--bp0--x1-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y1-2
+                                        HV-gu--bp25--x1-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y1-2
+                                        HV-gu--bp30--x1-3
+                                        HV-gu--bp30--25p">
+                                    <a href="http://www.holidaytaxis.com/en/?ref=TRSBB&airportgroupid=9&IATA={ArrivalAirportCode}&pax={NumberOfAdults},{NumberOfChildren},{NumberOfInfants}&arrivaldatetime={ArrivalYear}-{ArrivalMonth}-{ArrivalDay}%20{ArrivalHour}:{ArrivalMinute}" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Book a transfer
+                                    </a>
+                                </li>
+                                <li class="
+                                        HV-gu-small--bp0--y1-3
+                                        HV-gu--bp0--x2-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y1-2
+                                        HV-gu--bp25--x2-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y1-2
+                                        HV-gu--bp30--x2-3
+                                        HV-gu--bp30--25p">
+                                    <a href="/en-EU/business-travel/" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Book a business trip
+                                    </a>
+                                </li>
+                                <li class="
+                                        HV-gu-small--bp0--y2-3
+                                        HV-gu--bp0--x1-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y1-2
+                                        HV-gu--bp25--x3-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y1-2
+                                        HV-gu--bp30--x3-3
+                                        HV-gu--bp30--25p">
+                                    <a href="/en-EU/destinations/" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Our destinations
+                                    </a>
+                                </li>
+                                <li class="
+                                        HV-gu-small--bp0--y2-3
+                                        HV-gu--bp0--x2-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y2-2
+                                        HV-gu--bp25--x1-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y2-2
+                                        HV-gu--bp30--x1-3
+                                        HV-gu--bp30--25p">
+                                    <a href="http://transavia.parkcloud.com/en-GB" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Book a parking spot
+                                    </a>
+                                </li>
+                                <li class="
+                                        HV-gu-small--bp0--y3-3
+                                        HV-gu--bp0--x1-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y2-2
+                                        HV-gu--bp25--x2-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y2-2
+                                        HV-gu--bp30--x2-3
+                                        HV-gu--bp30--25p">
+                                    <a href="https://www.transavia.com/en-EU/book-a-flight/flights/search/?fb=true" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Book with Flying Blue Miles
+                                    </a>
+                                </li>
+                                <li class="
+                                        HV-gu-small--bp0--y3-3
+                                        HV-gu--bp0--x2-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y2-2
+                                        HV-gu--bp25--x3-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y2-2
+                                        HV-gu--bp30--x3-3
+                                        HV-gu--bp30--25p">
+                                    <a href="/en-EU/book-a-flight/advanced-search/search/" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Advanced search
+                                    </a>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            </li>
+            <li class="primary-navigation_item">
+                    <a class="h5 primary-navigation_link" href="/en-EU/my-transavia/booking/booking-overview/" data-module='[{"path": "ui/TogglePanel","options": {}}]' data-togglepanel-container='[data-togglepanel="horizontal-sub-navigation-manageyourbooking"]' data-content-container="#horizontal-sub-navigation-book .togglepanel" data-togglepanel=".togglepanel-content">
+                        <span class="icon-font icon-down-small"></span>
+                        Manage your booking
+                    </a>
+
+
+<div id="horizontal-sub-navigation-manageyourbooking">
+    <div class="togglepanel-container primary-navigation_togglepanel" data-togglepanel="horizontal-sub-navigation-manageyourbooking">
+        <div class="togglepanel-arrow"></div>
+        <div class="togglepanel-content primary-navigation_togglepanel-content">
+            <div class="sub-navigation sub-navigation--horizontal">
+                    <div class="sub-navigation-level-1 sub-navigation-level-1--horizontal">
+                        <div class="panel_section">
+                            <ul class="bulletless sub-navigation-level-1_list HV-gc">
+                                    <li class="sub-navigation-level-1_item HV-gu--bp0--y1-1 HV-gu--bp0--x1-2 HV-gu--bp0--50p HV-gu--bp25--y1-1 HV-gu--bp25--x1-3 HV-gu--bp25--33p">
+                                        <a href="/en-EU/my-transavia/check-in/before-you-check-in/" class="sub-navigation_link sub-navigation-level-1_link h5">
+                                            <div class="stamp-in-margin--bp0">
+                                                <span class="stamp icon-font icon-boardingpass"></span>
+                                                <span class="sub-navigation-level-1_link-text">Online check in&nbsp;<span class="icon-font icon-arrow-right"></span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="sub-navigation-level-1_item HV-gu--bp0--y1-2 HV-gu--bp0--x2-2 HV-gu--bp0--50p HV-gu--bp25--y1-1 HV-gu--bp25--x2-3 HV-gu--bp25--33p">
+                                        <a href="/en-EU/my-transavia/booking/booking-overview/" class="sub-navigation_link sub-navigation-level-1_link h5">
+                                            <div class="stamp-in-margin--bp0">
+                                                <span class="stamp icon-font icon-account"></span>
+                                                <span class="sub-navigation-level-1_link-text">View your booking&nbsp;<span class="icon-font icon-arrow-right"></span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                            </ul>
+                        </div>
+                    </div>
+                <div class="sub-navigation-level-2 sub-navigation-level-2--horizontal panel_section panel_section--bottom">
+                    <div class="HV-gs-type-e--bp0">
+                        <h2 class="h6">Easily manage your booking in My Transavia:</h2>
+                    </div>
+                    <div class="HV-gs--bp0">
+                        <ul class="bulletless sub-navigation-level-2_list HV-gc">
+
+
+
+                                <li class="
+                                        HV-gu-small--bp0--y1-3
+                                        HV-gu--bp0--x1-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y1-2
+                                        HV-gu--bp25--x1-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y1-2
+                                        HV-gu--bp30--x1-3
+                                        HV-gu--bp30--25p">
+                                    <a href="/en-EU/my-transavia/hold-luggage/select/" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Book hold luggage
+                                    </a>
+                                </li>
+                                <li class="
+                                        HV-gu-small--bp0--y1-3
+                                        HV-gu--bp0--x2-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y1-2
+                                        HV-gu--bp25--x2-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y1-2
+                                        HV-gu--bp30--x2-3
+                                        HV-gu--bp30--25p">
+                                    <a href="/en-EU/my-transavia/seat-reservation/select/" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Reserve a seat
+                                    </a>
+                                </li>
+                                <li class="
+                                        HV-gu-small--bp0--y2-3
+                                        HV-gu--bp0--x1-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y1-2
+                                        HV-gu--bp25--x3-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y1-2
+                                        HV-gu--bp30--x3-3
+                                        HV-gu--bp30--25p">
+                                    <a href="/en-EU/my-transavia/change-flight/select-change/" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Change your flight
+                                    </a>
+                                </li>
+                                <li class="
+                                        HV-gu-small--bp0--y2-3
+                                        HV-gu--bp0--x2-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y2-2
+                                        HV-gu--bp25--x1-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y2-2
+                                        HV-gu--bp30--x1-3
+                                        HV-gu--bp30--25p">
+                                    <a href="/en-EU/my-transavia/special-luggage/select/" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Book special luggage
+                                    </a>
+                                </li>
+                                <li class="
+                                        HV-gu-small--bp0--y3-3
+                                        HV-gu--bp0--x1-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y2-2
+                                        HV-gu--bp25--x2-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y2-2
+                                        HV-gu--bp30--x2-3
+                                        HV-gu--bp30--25p">
+                                    <a href="/en-EU/my-transavia/mobility-limitation/select/" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Request medical services
+                                    </a>
+                                </li>
+                                <li class="
+                                        HV-gu-small--bp0--y3-3
+                                        HV-gu--bp0--x2-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y2-2
+                                        HV-gu--bp25--x3-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y2-2
+                                        HV-gu--bp30--x3-3
+                                        HV-gu--bp30--25p">
+                                    <a href="/en-EU/my-transavia/changename/conditions/" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Change passenger details
+                                    </a>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            </li>
+            <li class="primary-navigation_item">
+                    <a class="h5 primary-navigation_link" href="/en-EU/service/" data-module='[{"path": "ui/TogglePanel","options": {}}]' data-togglepanel-container='[data-togglepanel="horizontal-sub-navigation-service"]' data-content-container="#horizontal-sub-navigation-book .togglepanel" data-togglepanel=".togglepanel-content">
+                        <span class="icon-font icon-down-small"></span>
+                        Service
+                    </a>
+
+
+<div id="horizontal-sub-navigation-service">
+    <div class="togglepanel-container primary-navigation_togglepanel" data-togglepanel="horizontal-sub-navigation-service">
+        <div class="togglepanel-arrow"></div>
+        <div class="togglepanel-content primary-navigation_togglepanel-content">
+            <div class="sub-navigation sub-navigation--horizontal">
+                    <div class="sub-navigation-level-1 sub-navigation-level-1--horizontal">
+                        <div class="panel_section">
+                            <ul class="bulletless sub-navigation-level-1_list HV-gc">
+                                    <li class="sub-navigation-level-1_item HV-gu--bp0--y1-1 HV-gu--bp0--x1-2 HV-gu--bp0--50p HV-gu--bp25--y1-1 HV-gu--bp25--x1-3 HV-gu--bp25--33p">
+                                        <a href="/en-EU/service/" class="sub-navigation_link sub-navigation-level-1_link h5">
+                                            <div class="stamp-in-margin--bp0">
+                                                <span class="stamp icon-font icon-suitcase"></span>
+                                                <span class="sub-navigation-level-1_link-text">Services &amp; information&nbsp;<span class="icon-font icon-arrow-right"></span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="sub-navigation-level-1_item HV-gu--bp0--y1-2 HV-gu--bp0--x2-2 HV-gu--bp0--50p HV-gu--bp25--y1-1 HV-gu--bp25--x2-3 HV-gu--bp25--33p">
+                                        <a href="/en-EU/service/customer-service/" class="sub-navigation_link sub-navigation-level-1_link h5">
+                                            <div class="stamp-in-margin--bp0">
+                                                <span class="stamp icon-font icon-contact"></span>
+                                                <span class="sub-navigation-level-1_link-text">Customer service&nbsp;<span class="icon-font icon-arrow-right"></span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="sub-navigation-level-1_item HV-gu--bp0--y2-2 HV-gu--bp0--x1-2 HV-gu--bp0--50p HV-gu--bp25--y1-1 HV-gu--bp25--x3-3 HV-gu--bp25--33p">
+                                        <a href="https://service-en.transavia.com/" class="sub-navigation_link sub-navigation-level-1_link h5">
+                                            <div class="stamp-in-margin--bp0">
+                                                <span class="stamp icon-font icon-question"></span>
+                                                <span class="sub-navigation-level-1_link-text">FAQs&nbsp;<span class="icon-font icon-arrow-right"></span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                            </ul>
+                        </div>
+                    </div>
+                <div class="sub-navigation-level-2 sub-navigation-level-2--horizontal panel_section panel_section--bottom">
+                    <div class="HV-gs-type-e--bp0">
+                        <h2 class="h6">Prepare for your trip:</h2>
+                    </div>
+                    <div class="HV-gs--bp0">
+                        <ul class="bulletless sub-navigation-level-2_list HV-gc">
+
+
+
+                                <li class="
+                                        HV-gu-small--bp0--y1-3
+                                        HV-gu--bp0--x1-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y1-2
+                                        HV-gu--bp25--x1-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y1-2
+                                        HV-gu--bp30--x1-3
+                                        HV-gu--bp30--25p">
+                                    <a href="/en-EU/service/hand-luggage/" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Handluggage
+                                    </a>
+                                </li>
+                                <li class="
+                                        HV-gu-small--bp0--y1-3
+                                        HV-gu--bp0--x2-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y1-2
+                                        HV-gu--bp25--x2-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y1-2
+                                        HV-gu--bp30--x2-3
+                                        HV-gu--bp30--25p">
+                                    <a href="/en-EU/my-transavia/check-in/login/" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Online check-in
+                                    </a>
+                                </li>
+                                <li class="
+                                        HV-gu-small--bp0--y2-3
+                                        HV-gu--bp0--x1-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y1-2
+                                        HV-gu--bp25--x3-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y1-2
+                                        HV-gu--bp30--x3-3
+                                        HV-gu--bp30--25p">
+                                    <a href="/en-EU/service/transavia-flying-blue/" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Flying Blue
+                                    </a>
+                                </li>
+                                <li class="
+                                        HV-gu-small--bp0--y2-3
+                                        HV-gu--bp0--x2-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y2-2
+                                        HV-gu--bp25--x1-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y2-2
+                                        HV-gu--bp30--x1-3
+                                        HV-gu--bp30--25p">
+                                    <a href="/en-EU/service/hold-luggage/" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Hold luggage
+                                    </a>
+                                </li>
+                                <li class="
+                                        HV-gu-small--bp0--y3-3
+                                        HV-gu--bp0--x1-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y2-2
+                                        HV-gu--bp25--x2-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y2-2
+                                        HV-gu--bp30--x2-3
+                                        HV-gu--bp30--25p">
+                                    <a href="/en-EU/service/airport-information/" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> Airport information
+                                    </a>
+                                </li>
+                                <li class="
+                                        HV-gu-small--bp0--y3-3
+                                        HV-gu--bp0--x2-2
+                                        HV-gu--bp0--50p
+
+                                        HV-gu-small--bp25--y2-2
+                                        HV-gu--bp25--x3-3
+                                        HV-gu--bp25--33p
+
+                                        HV-gu-small--bp30--y2-2
+                                        HV-gu--bp30--x3-3
+                                        HV-gu--bp30--25p">
+                                    <a href="https://www.transavia.com/en-EU/service/transavia-entertainment-app/" class=" sub-navigation_link sub-navigation-level-2_link">
+                                        <span class="icon-font icon-next"></span> On-board entertainment
+                                    </a>
+                                </li>
+                        </ul>
+                    </div>
+<div class="HV-gc">
+    <div class="HV-gu--bp25--y1-1 HV-gu--bp25--x1-2 HV-gu--bp25--66p HV-gu--bp30--y1-1 HV-gu--bp30--x1-2 HV-gu--bp30--50p">
+        <div class="HV-gs-type-e--bp0">
+                <form method="get" action="//service-en.transavia.com/app/answers/list/kw/" id="search" target="_blank" data-module="ui/SearchForm">
+        <div class="textfield textfield--merge-input-and-button">
+            <input type="text" name="search" id="searchfield" placeholder="Type your question">
+            <button class="button button-call-to-action" type="submit">
+                <span class="icon-font icon-search"></span>
+            </button>
+        </div>
+    </form>
+
+        </div>
+        <a target="" href="http://service-en.transavia.com/">View all frequently asked questions</a>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            </li>
+    </ul>
+</div>
+
+        </script>
+        <script type="text/template" data-horizontal-secondary-navigation-template>
+            <div class="secondary-navigation secondary-navigation--horizontal navigation_horizontal-secondary-navigation is-hidden" data-prevent-wrapping-item>
+    <ul class="bulletless secondary-navigation_list">
+            <li class="secondary-navigation_item">
+                <a class="secondary-navigation_link" href="/en-EU/flight-status/search/">Flight status</a>
+            </li>
+            <li class="secondary-navigation_item">
+                <a class="secondary-navigation_link" href="/en-EU/my-transavia/check-in/before-you-check-in/">Check-in</a>
+            </li>
+            <li class="secondary-navigation_item">
+                <a class="secondary-navigation_link" href="/en-EU/destinations/">Destinations</a>
+            </li>
+    </ul>
+</div>
+        </script>
+    </div>
+    <script type="text/template" data-horizontal-tertiary-navigation-template>
+        <div class="tertiary-navigation tertiary-navigation--horizontal  is-hidden">
+            <ul class="bulletless tertiary-navigation_list">
+            <li class="sub-navigation_item tertiary-navigation_item">
+                <a href="/en-EU/service/customer-service/" class="sub-navigation_link tertiary-navigation_link">Contact</a>
+            </li>
+<li class="sub-navigation_item tertiary-navigation_item">
+        <a href="/en-EU/my-transavia/booking/retrieve/" class="sub-navigation_link tertiary-navigation_link">Log in</a>
+</li><li class="sub-navigation_item tertiary-navigation_item">
+    <a href=""
+       class="sub-navigation_link tertiary-navigation_link"
+       data-module="ui/TogglePanel"
+       data-content-container=".tertiary-navigation--vertical"
+       data-content="[data-language-selection]"
+       data-togglepanel-container='[data-togglepanel="language"]'
+       data-togglepanel=".togglepanel-content">
+        <span class="icon-font icon-down-small"></span> Other country
+    </a>
+</li></ul>
+        </div>
+    </script>
+    <div id="navigation" class="navigation_collapsed-navigation">
+        <div class="navigation_collapsed-navigation-content">
+            <p class="navigation_button-close-wrapper">
+                <a href="#" class="navigation_button-close" data-hamburger-button>
+                    <span class="icon-font icon-hamburger navigation_button-close_icon"></span>
+                </a>
+            </p>
+            <div class="navigation_container">
+                <div class="navigation_vertical-primary-and-secondary-navigation-wrapper">
+                    <div class="primary-navigation primary-navigation--vertical navigation_primary-navigation" data-vertical-primary-navigation>
+                        <ul class="bulletless primary-navigation_list">
+
+        <li class="primary-navigation_item">
+                    <a class="h4 h4--green primary-navigation_link" href="/en-EU/home/">
+                        <span class="icon-font icon-house"></span>
+                    </a>
+        </li>
+        <li class="primary-navigation_item">
+                <div class="toggle-container-level-1 is-closed" data-module='[{
+                    "path": "ui/Toggle",
+                    "options": {
+                        "togglerSelector": ".toggle-button-level-1",
+                        "toggledContentSelector": ".toggle-content-level-1"
+                    }
+                }]'>
+                    <a class="h5 primary-navigation_link toggle-button-level-1" href="/en-EU/book-a-flight/flights/search/">
+                        <span class="icon-font icon-down-small"></span>
+                        <span class="icon-font icon-up-small"></span>
+                        Plan and book
+                    </a>
+                    <div class="toggle-content-level-1" id="sub-navigation-planandbook">
+    <div class="sub-navigation sub-navigation--vertical">
+        <div class="sub-navigation-level-1--vertical">
+            <ul class="bulletless sub-navigation-level-1_list">
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/book-a-flight/flights/search/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Book a flight
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="http://www.booking.com/index.en-us.html?aid=320721;label=trnsv-home-navtab;sid=fca5360215bdfcab963f170d78bc3320;dcid=1" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Book a hotel
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="https://cars.cartrawler.com/transavia/en" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Rent a car
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="http://www.holidaytaxis.com/en/?ref=TRSBB&airportgroupid=9&IATA={ArrivalAirportCode}&pax={NumberOfAdults},{NumberOfChildren},{NumberOfInfants}&arrivaldatetime={ArrivalYear}-{ArrivalMonth}-{ArrivalDay}%20{ArrivalHour}:{ArrivalMinute}" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Book a transfer
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/business-travel/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Book a business trip
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/destinations/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Our destinations
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="http://transavia.parkcloud.com/en-GB" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Book a parking spot
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="https://www.transavia.com/en-EU/book-a-flight/flights/search/?fb=true" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Book with Flying Blue Miles
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/book-a-flight/advanced-search/search/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Advanced search
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+                </div>
+        </li>
+        <li class="primary-navigation_item">
+                <div class="toggle-container-level-1 is-closed" data-module='[{
+                    "path": "ui/Toggle",
+                    "options": {
+                        "togglerSelector": ".toggle-button-level-1",
+                        "toggledContentSelector": ".toggle-content-level-1"
+                    }
+                }]'>
+                    <a class="h5 primary-navigation_link toggle-button-level-1" href="/en-EU/my-transavia/booking/booking-overview/">
+                        <span class="icon-font icon-down-small"></span>
+                        <span class="icon-font icon-up-small"></span>
+                        Manage your booking
+                    </a>
+                    <div class="toggle-content-level-1" id="sub-navigation-manageyourbooking">
+    <div class="sub-navigation sub-navigation--vertical">
+        <div class="sub-navigation-level-1--vertical">
+            <ul class="bulletless sub-navigation-level-1_list">
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/my-transavia/check-in/before-you-check-in/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Online check in
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/my-transavia/booking/booking-overview/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> View your booking
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/my-transavia/hold-luggage/select/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Book hold luggage
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/my-transavia/seat-reservation/select/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Reserve a seat
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/my-transavia/change-flight/select-change/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Change your flight
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/my-transavia/special-luggage/select/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Book special luggage
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/my-transavia/mobility-limitation/select/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Request medical services
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/my-transavia/changename/conditions/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Change passenger details
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+                </div>
+        </li>
+        <li class="primary-navigation_item">
+                <div class="toggle-container-level-1 is-closed" data-module='[{
+                    "path": "ui/Toggle",
+                    "options": {
+                        "togglerSelector": ".toggle-button-level-1",
+                        "toggledContentSelector": ".toggle-content-level-1"
+                    }
+                }]'>
+                    <a class="h5 primary-navigation_link toggle-button-level-1" href="/en-EU/service/">
+                        <span class="icon-font icon-down-small"></span>
+                        <span class="icon-font icon-up-small"></span>
+                        Service
+                    </a>
+                    <div class="toggle-content-level-1" id="sub-navigation-service">
+    <div class="sub-navigation sub-navigation--vertical">
+        <div class="sub-navigation-level-1--vertical">
+            <ul class="bulletless sub-navigation-level-1_list">
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/service/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Services &amp; information
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/service/customer-service/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Customer service
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="https://service-en.transavia.com/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> FAQs
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/service/hand-luggage/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Handluggage
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/my-transavia/check-in/login/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Online check-in
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/service/transavia-flying-blue/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Flying Blue
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/service/hold-luggage/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Hold luggage
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="/en-EU/service/airport-information/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> Airport information
+                        </a>
+                    </li>
+                    <li class="sub-navigation_item">
+                        <a href="https://www.transavia.com/en-EU/service/transavia-entertainment-app/" class="sub-navigation_link">
+                            <span class="icon-font icon-next"></span> On-board entertainment
+                        </a>
+                    </li>
+            </ul>
+        </div>
+<div class="HV-gs-type-e--bp0">
+        <form method="get" action="//service-en.transavia.com/app/answers/list/kw/" id="search" target="_blank" data-module="ui/SearchForm">
+        <div class="textfield textfield--merge-input-and-button">
+            <input type="text" name="search" id="searchfield" placeholder="Type your question">
+            <button class="button button-call-to-action" type="submit">
+                <span class="icon-font icon-search"></span>
+            </button>
+        </div>
+    </form>
+
+</div>
+<div class="HV-gs--bp0">
+    <a target="" href="http://service-en.transavia.com/">View all frequently asked questions</a>
+</div>
+    </div>
+</div>
+                </div>
+        </li>
+
+</ul>
+                    </div>
+                    <div class="HV-gs-type-e--bp0">
+                        <hr class="divider" />
+                    </div>
+                    <div class="HV-gs-type-e--bp0">
+                        <div class="secondary-navigation secondary-navigation--vertical navigation_secondary-navigation" data-secondary-navigation>
+    <ul class="bulletless secondary-navigation_list">
+            <li class="secondary-navigation_item">
+                <a class="secondary-navigation_link" href="/en-EU/flight-status/search/">Flight status</a>
+            </li>
+            <li class="secondary-navigation_item">
+                <a class="secondary-navigation_link" href="/en-EU/my-transavia/check-in/before-you-check-in/">Check-in</a>
+            </li>
+            <li class="secondary-navigation_item">
+                <a class="secondary-navigation_link" href="/en-EU/destinations/">Destinations</a>
+            </li>
+    </ul>
+</div>
+                    </div>
+                </div>
+                <div class="sub-navigation sub-navigation--vertical tertiary-navigation tertiary-navigation--vertical">
+                    <ul class="bulletless tertiary-navigation_list">
+            <li class="sub-navigation_item tertiary-navigation_item">
+                <a href="/en-EU/service/customer-service/" class="sub-navigation_link tertiary-navigation_link">Contact</a>
+            </li>
+<li class="sub-navigation_item tertiary-navigation_item">
+        <a href="/en-EU/my-transavia/booking/retrieve/" class="sub-navigation_link tertiary-navigation_link">Log in</a>
+</li><li class="sub-navigation_item tertiary-navigation_item">
+    <div class="toggle-container-level-2 is-closed" data-module='[{
+            "path": "ui/Toggle",
+            "options": {
+                "togglerSelector": ".toggle-button-level-2",
+                "toggledContentSelector": ".toggle-content-level-2"
+            }
+        }]'>
+        <a href=""
+           class="sub-navigation_link tertiary-navigation_link toggle-button-level-2">
+            <span class="icon-font icon-down-small"></span>
+            <span class="icon-font icon-up-small"></span>
+            Other country
+        </a>
+        <div class="toggle-content-level-2">
+            <div class="tertiary-navigation_language-selection" data-language-selection>
+    <h2 class="h6 margin-bottom-d75rem">Please select your country:</h2>
+    <div class="HV-gc">
+        <div class="HV-gu--bp20--x1-2 HV-gu--bp20--50p margin-bottom-d5rem no-margin-bottom--bp20">
+            <ul class="link-list">
+                   <li><a href="/nl-NL/mijn-transavia/inchecken/inloggen/">Nederland</a></li>
+                   <li><a href="/en-NL/my-transavia/check-in/login/">Netherlands</a></li>
+                   <li><a href="/nl-BE/mijn-transavia/inchecken/inloggen/">Belgi&#235;</a></li>
+                   <li><a href="/fr-BE/mon-transavia/enregistrement/connectez-vous/">Belgique</a></li>
+                   <li><a href="/es-ES/mi-transavia/facturacion/conectarse/">Espa&#241;a</a></li>
+            </ul>
+        </div>
+        <div class="HV-gu--bp20--x2-2 HV-gu--bp20--50p">
+            <ul class="link-list">
+                    <li><a href="/fr-FR/mon-transavia/enregistrement/connectez-vous/">France</a></li>
+                    <li><a href="/it-IT/la-mia-transavia/check-in/login/">Italia</a></li>
+                    <li><a href="/de-DE/mein-transavia/einchecken/einloggen/">Deutschland</a></li>
+                    <li><a href="/pt-PT/a-minha-transavia/check-in/efetuar-login/">Portugal</a></li>
+                    <li><a href="/en-EU/my-transavia/check-in/login/">Other country</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+</li></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+</header>
+    <div class="togglepanel-container togglepanel-language" data-togglepanel="language">
+        <div class="togglepanel-arrow"></div>
+        <div class="togglepanel-content"></div>
+    </div>
+
+
+
+    
+<div data-module='[{"path": "ui/PreventZoom"}]' class="container theme theme-bbl">    
+    
+
+
+<div class="HV-gs-main--bp0 HV-gs-main--bp10" id="top">
+    
+
+
+    
+
+
+
+<div class="HV-gw--bp0 HV-gw-column-centered-type-e HV-gw-column-centered-type-c--bp25">
+    <div class="HV-gs--bp0 HV-gs--bp10 HV-gs--bp22">
+        <div class="HV-gc">
+            <div class="HV-gu--bp25--x1-3 HV-gu--bp25--25p"></div>
+            <div class="HV-gu--bp25--x2-3 HV-gu--bp25--50p margin-bottom-1rem margin-bottom-1d5rem--bp10">
+<form action="/en-EU/my-transavia/check-in/login/" data-module="ui/FormValidator" id="retrieveBooking" method="post"><input name="__RequestVerificationToken" type="hidden" value="78ZBAhlSszuCBGJdXKoaYR9ML9eWYApgf6_Ovvh05s-iFZi0OIxFT8cBb674uuhEqP3FUbFQerUHoQzaR37keYp2f4d8POfU_lsGvMzOVj81" />                    <div class="panel panel--overflow">
+                        <div class="panel_section panel_section--content">
+                            <header>
+                                <h1 class="h3">
+                                    
+Online check-in
+
+                                </h1>
+                            </header>
+
+                        </div>
+                        <div class="panel_section panel_section--secondary panel_section--photography panel_section--content-button">
+                            
+
+
+                            
+
+
+                            
+                                <p>
+                                    For many of our flights, you can check in online from 30 hours to 4 hours before departure.
+                                </p>
+                            <ul class="fields">
+                                <li class="field textfield field-block">
+                                    <label for="retrieveBookingByLastname_RecordLocator">Booking number</label>
+
+
+    <div class="tooltip-dialog" data-module="ui/TooltipDialog" title="If you have booked via our website or call center, you can find your booking number in the booking confirmation that you have received from us by email. 
+
+If you booked through a tour operator or travel agent, you can find your booking number (sometimes also called 'reservation number') on the travel documents that you have received from your tour operator or travel agent.">
+        <h3 class="h6">Where can I find my booking number?</h3>
+        <p>If you have booked via our website or call center, you can find your booking number in the booking confirmation that you have received from us by email. 
+
+If you booked through a tour operator or travel agent, you can find your booking number (sometimes also called 'reservation number') on the travel documents that you have received from your tour operator or travel agent.</p>
+    </div>
+
+                                    <div class="textfield">
+                                        <input class="text" id="retrieveBookingByLastname_RecordLocator" name="retrieveBookingByLastname.RecordLocator" placeholder="e.g. BRN123" type="text" value="" />
+                                    </div>
+                                </li>
+                                <li class="field textfield field-block">
+                                    <label for="retrieveBookingByLastname_LastName">Last name</label>
+                                    <div class="textfield">
+                                        <input class="text" id="retrieveBookingByLastname_LastName" name="retrieveBookingByLastname.LastName" placeholder="e.g. Smith" type="text" value="" />
+                                    </div>
+                                </li>
+                                <li class="field field-datepicker field-block no-padding-bottom" data-module="ui/DatePickerInput" data-suggestion-label="Do you mean" data-placeholder="dd-mm-yyyy">
+                                    <label for="retrieveBookingByLastname_FlightDate">Flight date</label>
+                                    <div class="selectfield has-3-items">
+                                        <label class="is-hidden" for="retrieveBookingByLastname_Day">Day</label>
+                                        <div class="selectfield-wrapper selectfield-wrapper-small">
+                                            <select class="date-day" data-label-container="[data-module]" id="retrieveBookingByLastname_Day" name="retrieveBookingByLastname.Day"><option value="">DD</option>
+<option selected="selected" value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+                                        </div>
+                                        <label class="is-hidden" for="retrieveBookingByLastname_Month">Month</label>
+                                        <div class="selectfield-wrapper selectfield-wrapper-small">
+                                            <select class="date-month" data-label-container="[data-module]" id="retrieveBookingByLastname_Month" name="retrieveBookingByLastname.Month"><option value="">MM</option>
+<option selected="selected" value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+</select>
+                                        </div>
+                                        <label class="is-hidden" for="retrieveBookingByLastname_Year">Year</label>
+                                        <div class="selectfield-wrapper selectfield-wrapper-medium">
+                                            <select class="date-year" data-label-container="[data-module]" id="retrieveBookingByLastname_Year" name="retrieveBookingByLastname.Year"><option value="">YYYY</option>
+<option value="2011">2011</option>
+<option value="2012">2012</option>
+<option value="2013">2013</option>
+<option value="2014">2014</option>
+<option value="2015">2015</option>
+<option value="2016">2016</option>
+<option value="2017">2017</option>
+</select>
+                                        </div>
+                                    </div>
+                                </li>
+                                <input id="retrieveBookingByLastname_Flow" name="retrieveBookingByLastname.Flow" type="hidden" value="" />
+                            </ul>
+                        </div>
+                        <div class="panel_section panel_section--button">
+                            <div class="panel_section-button-container">
+                                
+                                <button type="submit" class="button button-primary">Log in</button>
+                            </div>
+                        </div>
+                    </div>
+</form>            </div>
+            <div class="HV-gu--bp25--x3-3 HV-gu--bp25--25p">
+                <div class="HV-gc">
+                        <div class="HV-gu--bp0--x1-2 HV-gu--bp0--50p HV-gu--bp25--x1-1 HV-gu--bp25--y1-1 HV-gu--bp25--0p">
+                            <div class="logo logo--inverted">Transavia</div>
+                        </div>
+                        <div class="HV-gu--bp0--x2-2 HV-gu--bp0--0p HV-gu--bp25--x1-1 HV-gu--bp25--y1-1 HV-gu--bp25--90p">
+                            <div class="logo logo--stacked-inverted">Transavia</div>
+                        </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</div>
+    
+</div>    
+    
+    <p class="scrolltop" data-module="ui/ScrollTop">
+    <a href="#top">Back to top</a>
+</p>
+
+    
+
+
+<footer class="footer">  
+
+    
+    <div class="services">
+        <h2 class="h4">Can we help you?</h2>
+        <div class="HV-gw--bp0 HV-gw--bp5 HV-gw--bp10 HV-gw-column-centered-type-a">
+            <div class="HV-gs--bp0">
+                    <form method="get" action="//service-en.transavia.com/app/answers/list/kw/" id="search" target="_blank" data-module="ui/SearchForm">
+        <div class="textfield textfield--merge-input-and-button">
+            <input type="text" name="search" id="searchfield" placeholder="Type your question">
+            <button class="button button-call-to-action" type="submit">
+                <span class="icon-font icon-search"></span>
+            </button>
+        </div>
+    </form>
+
+            </div>
+        </div>
+    </div>
+
+<div class="service-links">
+    <div class="HV-gw--bp0 HV-gw--bp5 HV-gw--bp10 HV-gw-column-centered-type-a">
+        <div class="HV-gs--bp0">
+            <div class="HV-gc">
+                <div data-module='[{
+                    "path": "ui/Toggle",
+                    "options": {
+                        "containerSelector": ".footer-options",
+                        "togglerSelector": ".toggler",
+                        "toggledContentSelector": "ul"
+                    },
+                    "conditions": "media:{(max-width:29.9375em)}"
+                }]'>
+<div class="HV-gu--bp0--y1-2 HV-gu--bp5--y1-2 HV-gu--bp5--x1-2 HV-gu--bp5--50p footer-options">
+        <h3 class="toggler h6">About Transavia</h3>
+        <ul>
+                <li>
+                    <a href="https://corporate.transavia.com/en-NL/home/" target="_blank">About us</a>
+                </li>
+                <li>
+                    <a href="/en-EU/about-transavia/new-year-new-story-new-transavia/">The new Transavia</a>
+                </li>
+                <li>
+                    <a href="/en-EU/sitecore/content/items to be deleted/destinations_20160926141105/">Our destinations</a>
+                </li>
+                <li>
+                    <a href="https://partner.transavia.com/en-EU/home">Become a partner of Transavia</a>
+                </li>
+                <li>
+                    <a href="/en-EU/business-travel/">Business travel</a>
+                </li>
+        </ul>
+</div><div class="HV-gu--bp0--y2-2 HV-gu--bp5--y1-2 HV-gu--bp5--x2-2 HV-gu--bp5--50p footer-options">
+        <h3 class="toggler h6">Self-service</h3>
+        <ul>
+                <li>
+                    <a href="/en-EU/my-transavia/hold-luggage/select/">Book hold luggage</a>
+                </li>
+                <li>
+                    <a href="/en-EU/my-transavia/seat-reservation/select/">Reserve a seat</a>
+                </li>
+                <li>
+                    <a href="/en-EU/my-transavia/check-in/login/">Check in for your flight</a>
+                </li>
+                <li>
+                    <a href="/en-EU/service/missing-luggage/">Missing luggage</a>
+                </li>
+                <li>
+                    <a href="/en-EU/service/damaged-luggage/">Damaged luggage</a>
+                </li>
+                <li>
+                    <a href="/en-EU/service/customer-service/">Contact us</a>
+                </li>
+        </ul>
+</div>                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="legal-info">
+    <div class="HV-gw--bp0 HV-gw--bp5 HV-gw--bp10">
+        <div class="HV-gs--bp0">
+            <div class="HV-gc">
+                <div class="HV-gu--bp0--y1-2 HV-gu--bp10--y1-1 HV-gu--bp10--x1-2 HV-gu--bp10--40p HV-gu--bp20--60p HV-gu--bp30--60p">
+    <section>
+        <h3>Terms and conditions</h3>
+        <ul>
+                <li><a href="/en-EU/the-small-print/conditions-of-carriage/">Conditions of carriage</a></li>
+                <li><a href="/en-EU/the-small-print/eu-notice/">E.U. notice</a></li>
+                <li><a href="/en-EU/the-small-print/privacy/">Privacy</a></li>
+                <li><a href="/en-EU/the-small-print/disclaimer/">Disclaimer</a></li>
+                <li><a href="/en-EU/service/secure-payment/">Safe payment</a></li>
+                <li><a href="/en-EU/the-small-print/cookie-policy/">Cookie policy</a></li>
+        </ul>
+    </section>
+</div>
+                <div class="HV-gu--bp0--y2-2 HV-gu--bp10--y1-1 HV-gu--bp10--x2-2 HV-gu--bp10--60p HV-gu--bp20--40p HV-gu--bp30--40p">
+
+                    <div class="footer-branding">
+                        <img src="/Static/Images/logos/transavia-logo.svg" alt="Transavia" id="logo-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0012/6217.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+
+</footer>
+
+    
+    <script src='https://d287b8ujr3wtgx.cloudfront.net/scripts/transavia?v=EAP-HXo6dRivCcNC4mW4oQEdrTBZBF6Oq2vGekalr1k1'></script>
+
+
+    
+
+
+
+    <script>
+        document.addEventListener && document.addEventListener("DOMContentLoaded", function (event) {
+
+            // setup requirejs
+            requirejs.config({
+                        baseUrl: 'https://d287b8ujr3wtgx.cloudfront.net/Scripts/js/',
+
+                urlArgs: 'q=x04HoU6IT2QPSfEt8GpUu4BxPiIK5RIyOU6dPMbQbQs1',
+                shim: {
+                    'modernizr': {
+                        'exports': 'Modernizr'
+                    },
+                    "libs/fontfaceobserver": {
+                        "exports": "FontFaceObserver"
+                    }
+                },
+                paths: {
+                    'jquery': 'libs/jquery-2.1.1',
+                    'conditioner': 'libs/conditioner/conditioner-1.0.1',
+                    'utils/contains': 'libs/conditioner/utils/contains',
+                    'utils/extendClassOptions': 'libs/conditioner/utils/extendClassOptions',
+                    'utils/matchesSelector': 'libs/conditioner/utils/matchesSelector',
+                    'utils/mergeObjects': 'libs/conditioner/utils/mergeObjects',
+                    'utils/Observer': 'libs/conditioner/utils/Observer',
+                    'utils/Promise': 'libs/conditioner/utils/Promise',
+                    'monitors': 'libs/conditioner/monitors',
+                    'modernizr': 'libs/modernizr.min',
+                    'extends/observerContracts': 'config/contracts'
+                }
+            });
+            require(['ui/NexaFontObserver'],function(nexaFontObserver) {
+                nexaFontObserver();
+            });
+
+            var packages = Array.prototype.slice.call(document.querySelectorAll('[data-package]'))
+                .map(function (element) {
+                    return 'packages/' + element.getAttribute('data-package');
+                });
+
+            requirejs(packages, function () {
+                requirejs(['conditioner', 'autoInitialize'], function (conditioner, autoInitialize) {
+                    conditioner.init({
+                        'modules': {
+                            
+        'ui/DatePickerInput': {
+            'options': {
+                prevText: 'Previous',
+                nextText: 'Next',
+                monthNames: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+                monthNamesShort: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+                dayNames: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+                dayNamesShort: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
+                dayNamesMin: ['S','M','T','W','T','F','S'],
+                firstDay: 0
+            }
+        }
+        ,
+'ui/FormValidator': {'options':{"forms":{"retrieveBooking":{"rules":{"retrieveBookingByLastname.RecordLocator":{"required":true,"rangelength":[4,12]},"retrieveBookingByLastname.LastName":{"required":true,"rangelength":[1,255]},"retrieveBookingByLastname.Day":{"number":true},"retrieveBookingByLastname.Month":{"number":true},"retrieveBookingByLastname.Year":{"number":true}},"messages":{"retrieveBookingByLastname.RecordLocator":{"required":"Please fill in your booking number to log in. ","rangelength":"Your booking number has a minimum of 4 and a maximum of 12 characters. TIP! You can find your booking number on the booking confirmation you have received by e-mail."},"retrieveBookingByLastname.LastName":{"required":"Please fill in the last name of one of the passengers to continue. ","rangelength":"The last name should have a minimum of 1 and a maximum of 255 characters."},"retrieveBookingByLastname.Day":{"number":"Number"},"retrieveBookingByLastname.Month":{"number":"Number"},"retrieveBookingByLastname.Year":{"number":"Number"}}}}}}
+
+                        }
+                    });
+                    autoInitialize();
+                });
+            });
+        });
+
+        
+    </script>
+
+    
+
+    <script type="text/javascript">
+        
+    </script>
+
+    
+
+    
+    
+
+    
+</body>
+</html>

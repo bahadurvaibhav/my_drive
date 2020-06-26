@@ -47,8 +47,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static String ipAddress = "10.0.2.2:8888";
-  String hostUrl = "http://" + ipAddress + "/";
+  // In Android use 10.0.2.2; In iOS use localhost
+  static String ipAddress = "localhost";
+  String hostUrl = "http://" + ":8888" + "/";
 
   String fileUploadedName = "";
   String fileUploadErrorText = "";

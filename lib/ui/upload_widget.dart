@@ -152,6 +152,7 @@ class _UploadWidgetState extends State<UploadWidget> {
     token = CancelToken();
     var urlPath = widget.hostUrl + 'uploadDocument';
     try {
+      print(urlPath);
       await Dio().post(
         urlPath,
         data: formData,

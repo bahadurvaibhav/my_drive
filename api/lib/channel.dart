@@ -36,7 +36,7 @@ class MediaUploadController extends ResourceController {
   Future<Response> postMultipartForm() async {
     return MultiPartFormDataParser.multiPartData(
       request: request,
-      folder: 'files/',
+      folder: 'files',
       onFileData: (multipart, path) async {},
     ).then(
       (object) async {

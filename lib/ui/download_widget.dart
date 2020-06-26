@@ -139,6 +139,7 @@ class _DownloadWidgetState extends State<DownloadWidget> {
     token = CancelToken();
     String urlPath = widget.hostUrl + "files/" + widget.fileName;
     try {
+      print(urlPath);
       await Dio().download(
         urlPath,
         saveFileToPath,
