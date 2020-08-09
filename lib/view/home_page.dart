@@ -48,7 +48,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String fileUploadedName = "";
-  String fileErrorText = "";
+  String errorMsg = "";
 
   @override
   Widget build(BuildContext context) {
@@ -58,35 +58,35 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             UploadWidget(
               fileUploadedCallback: fileUploaded,
-              fileUploadErrorCallback: fileError,
+              fileUploadErrorCallback: setErrorMsg,
             ),
             SizedBox(width: 20),
             DownloadWidget(
               fileName: fileUploadedName,
-              fileDownloadErrorCallback: fileError,
+              fileDownloadErrorCallback: setErrorMsg,
             ),
           ],
         ),
         SizedBox(height: 20),
         showFileUploadedName(),
         SizedBox(height: 20),
-        showFileUploadError(),
+        showErrorMsg(),
       ],
     );
   }
 
-  void fileError(String error) {
+  void setErrorMsg(String error) {
     setState(() {
-      fileErrorText = error;
+      errorMsg = error;
     });
   }
 
-  Widget showFileUploadError() {
-    if (fileErrorText.isEmpty) {
+  Widget showErrorMsg() {
+    if (errorMsg.isEmpty) {
       return SizedBox();
     } else {
       return Text(
-        'Error: ' + fileErrorText,
+        'Error: ' + errorMsg,
         style: TextStyle(
           color: Colors.red,
         ),
