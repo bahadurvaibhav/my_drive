@@ -43,7 +43,7 @@ import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
 
 // In Android use 10.0.2.2; In iOS use localhost
-String ipAddress = "localhost";
+String ipAddress = "10.0.2.2";
 String hostUrl = "http://" + ipAddress + ":8888" + "/";
 
 List<String> acceptedExtensions = ["pdf", "jpg", "png", "jpeg"];
